@@ -1,7 +1,7 @@
 {
   "name": "s51_mobile_model",
   "version": "1.0.0",
-  "description": "",
+  "description": "The purpose of this webpage is to provide users with an easily accessible and up-to-date resource for exploring the diverse range of mobile phones introduced in 2024. From flagship devices to budget-friendly options, this list aims to cover a wide spectrum of models from various manufacturers.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
