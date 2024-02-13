@@ -11,6 +11,12 @@ The purpose of this webpage is to provide users with an easily accessible and up
 - **Detailed Information**: Access detailed specifications, features, and highlights for each mobile phone model.
 - **Regular Updates**: The webpage is regularly updated to include newly launched models and to ensure accuracy and relevance.
 
+## Technology Stack
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: [Insert Backend Technology/Framework here]
+- **Database**: [Insert Database Technology here]
+- **Hosting**: [Insert Hosting Platform/Service here]
+
 ## How to Use
 1. **Navigation**: Use the navigation menu or search bar to explore different mobile phone models.
 2. **Filtering**: Utilize the filtering options to refine your search based on specific preferences.
@@ -24,3 +30,4 @@ We strive to maintain the accuracy and comprehensiveness of this list. If you no
 While we make every effort to ensure the accuracy and completeness of the information provided, please note that specifications, features, and availability may vary over time and across regions. We recommend verifying details with official sources or retailers before making any purchasing decisions.
 
 Thank you for visiting the "List of Mobile Models Launched in 2024" webpage. We hope you find it informative and helpful in your exploration of the latest mobile phone technology.
+ 
