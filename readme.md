@@ -31,3 +31,5 @@ While we make every effort to ensure the accuracy and completeness of the inform
 
 Thank you for visiting the "List of Mobile Models Launched in 2024" webpage. We hope you find it informative and helpful in your exploration of the latest mobile phone technology.
  
+ ## Deployed link
+ https://mobile-models.onrender.com
