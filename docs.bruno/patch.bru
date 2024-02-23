@@ -1,0 +1,18 @@
+meta {
+  name: patch
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:7000/update/65d888b2f8633c8b70452192
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+     "Front_Camera": "hehe",
+      "Back_Camera": "hehe"
+  }
+}
