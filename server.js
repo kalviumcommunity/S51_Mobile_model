@@ -1,10 +1,13 @@
 require("dotenv").config()
 const mongoose = require('mongoose')
 const { Connect, isConnected } = require('./database')
-
+const routes = require("./routes/routes")
 const express = require('express');
 const app = express();
 const port = "7000"
+
+app.use(express.json())
+app.use("/",routes)
 
 app.get("/", (req, res) => {
   res.send(`${isConnected ? 'connected' : 'disconnected'}`)
