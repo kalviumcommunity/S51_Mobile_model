@@ -10,7 +10,7 @@ const  mobileSchema = new mongoose.Schema({
     Front_Camera: String,
     Mobile_Model: String,
     Operating_System: String,
-    Release_Year: Number,
+    Release_Year: String,
 
 
 
