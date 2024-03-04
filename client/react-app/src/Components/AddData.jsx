@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useState } from 'react';
 import './AddData.css';
+import { useNavigate,useLocation } from 'react-router-dom';
 
 
-function AddData({ onAddData }) {
+
+function AddData() {
+  const navigate = useNavigate();
   const [manufacturer, setManufacturer] = useState("");
   const [specification, setSpecification] = useState("");
   const [price, setPrice] = useState("");
@@ -13,12 +16,13 @@ function AddData({ onAddData }) {
   const [mobile_model, setMobile_Model] = useState("");
   const [operating_system, setOperating_System] = useState("");
   const [release_year, setRelease_Year] = useState("");
-
+  const [modelid, setmodelId] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const newData = {
+      modelId: modelid,
       Manufacturer: manufacturer,
       Specification: specification,
       Price: price,
@@ -33,9 +37,8 @@ function AddData({ onAddData }) {
     try {
 
       const response = await axios.post("https://mobile-models.onrender.com/post", newData);
-      console.log("ok from 36", response.data)
-      onAddData(response.data); 
-
+      console.log(response)
+      navigate("/")
     } catch (error) {
       console.error("Error adding data:", error);
     }
@@ -47,6 +50,10 @@ function AddData({ onAddData }) {
     <div>
       <h2>Add Data</h2>
       <form onSubmit={handleSubmit}>
+      <label>
+          modelId:
+          <input type="text" defaultValue={modelid} onChange={(e) => setmodelId(e.target.defaultValue)} />
+        </label>
         <label>
           Manufacturer:
           <input type="text" value={manufacturer} onChange={(e) => setManufacturer(e.target.value)} />
