@@ -31,7 +31,7 @@ router.patch("/update/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const updateData = req.body;
-        const updatedMobile = await Mobile.findByIdAndUpdate(id, updateData, { new: true });
+        const updatedMobile = await Mobile.findOneAndUpdate({"modelId":id}, updateData, { new: true });
 
         if (!updatedMobile) {
             console.error(`Mobile with _id ${id} not found`);
