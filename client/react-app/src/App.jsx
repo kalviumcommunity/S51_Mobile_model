@@ -1,46 +1,54 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import AddData from './Components/AddData';; // Import the AddData component
+import './App.css';
 
-import './App.css'
-// import Home from './Components/Home'
 function App() {
-  let [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetchData();
   }, []);
+
   const fetchData = async () => {
     const API = "https://mobile-models.onrender.com/models";
     try {
       const res = await fetch(API);
       const responseData = await res.json();
       setData(responseData);
-      console.log(responseData)
+      console.log(responseData);
     } catch (err) {
       console.error(err);
     }
   };
 
+  const handleAddData = (newData) => {
+    // Update the state to include the new data
+    setData((prevData) => [...prevData, newData]);
+  };
 
-return (
-  <>
-    <h1>Welcome</h1>
-    <div className="container">
-      {data && data.map((ele, index) => (
-        <div key={index} className="box">
-          <h2>{ele.Manufacturer}</h2>
-          <p><strong>Specification:</strong> {ele.Specification}</p>
-          <p><strong>Price:</strong> {ele.Price} </p>
-          <p><strong>Back Camera:</strong> {ele.Back_Camera}</p>
-          <p><strong>Battery Capacity:</strong> {ele.Batter_Capacity}</p>
-          <p><strong>Front Camera:</strong> {ele.Front_Camera}</p>
-          <p><strong>Model:</strong> {ele.Mobile_Model}</p>
-          <p><strong>Operating System:</strong> {ele.Operating_System}</p>
-          <p><strong>Release Year:</strong> {ele.Release_Year}</p>
-        </div>
-      ))}
-    </div>
-  </>
-);
-      }
+  return (
+    <>
+      <h1>Welcome</h1>
+      <AddData onAddData={handleAddData} />
 
-export default App
+      <div className="container">
+        {data && data.map((ele, index) => (
+          <div key={index} className="box">
+            {/* Display data as before */}
+            <p>Manufacturer: {ele.Manufacturer}</p>
+        <p>Specification: {ele.Specification}</p>
+        <p>price: {ele.Price}</p>
+         <p> Back_Camera: {ele.Back_Camera}</p>
+        <p>Battery_Capacity: {ele.Battery_Capacity}</p>
+        <p>Front_Camera: {ele.Front_Camera} </p>
+       <p> Mobile_Model: {ele.Mobile_Model} </p>
+        <p>Operating_System: {ele.Operating_System} </p>
+        <p>Release_Year:{data.Release_Year} </p>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default App;
