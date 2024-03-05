@@ -100,4 +100,17 @@ router.delete("/delete/:id", async (req, res) => {
     }
 });
 
+router.post("/login", (req, res) => {
+    const {username} = req.body
+    res.cookie("username", username)
+    res.json(username)
+})
+
+router.get("/logout", (req, res)=>{
+    res.clearCookie('username')
+    res.send('Logout successful')
+})
+
+
+
 module.exports = router;
