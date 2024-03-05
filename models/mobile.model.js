@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const  mobileSchema = new mongoose.Schema({
-    
+    modelId:Number,
     Manufacturer: String,
     Specification: String,
     Price: String,
@@ -11,9 +11,6 @@ const  mobileSchema = new mongoose.Schema({
     Mobile_Model: String,
     Operating_System: String,
     Release_Year: Number,
-
-
-
 }); 
 
 const Mobile = mongoose.model("mobilemodels", mobileSchema)
