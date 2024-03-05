@@ -17,7 +17,7 @@ const schema = Joi.object({
 // GET request to fetch mobile models
 router.get("/models", async (req, res) => {
     try {
-        const mobile = await Mobile.find();
+        const mobile = await Mobile.find(); 
         res.status(200).send(mobile);
     } catch (error) {
         console.log(error);
@@ -110,6 +110,18 @@ router.get("/logout", (req, res)=>{
     res.clearCookie('username')
     res.send('Logout successful')
 })
+const jwt = require('jsonwebtoken')
+
+app.post('/auth', (req, res) => {
+    const { username, password } = req.body;
+    // Generate JWT token
+    const token = jwt.sign({ username: username },process.env.ACCESS_TOKEN);
+    res.send({ token });
+    res.cookie('token', token);
+
+});
+
+
 
 
 
