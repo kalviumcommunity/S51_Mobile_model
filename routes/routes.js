@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const Mobile = require("../models/mobile.model");
 const Joi = require('joi')
+const bcrypt = require("bcrypt")
+const users = require("../models/User")
+
 const schema = Joi.object({
     modelId:Joi.number().required(),
     Manufacturer: Joi.string().required(),
@@ -100,29 +103,42 @@ router.delete("/delete/:id", async (req, res) => {
     }
 });
 
-router.post("/login", (req, res) => {
-    const {username} = req.body
-    res.cookie("username", username)
-    res.json(username)
+const jwt = require('jsonwebtoken')
+const data =[ {
+    username:"jas",
+    password: "$2b$10$BhWuiXsoCRXidJb36mQyHevurv4J0/.e3kdqVnEC3Hig/SibpubOa"
+}]
+
+router.post("/login", async(req, res) => {
+    const {username, password} = req.body
+    try{
+        const user = data.find(user => user.username == username)
+        if(!user){
+            return res.status(400).json({"message": "user not found"})
+        }   
+        const verifier = bcrypt.compare(password, user.password)
+        if (verifier){
+            const authtoken = jwt.sign({ username: username },process.env.ACCESS_TOKEN);
+            return res.status(200).json({
+                "authtoken": authtoken
+            })
+        }
+            return res.status(400).json({
+                "message": "passwords do not match"
+            })
+        
+
+    }catch(err){
+        console.log(err.message, "132")
+    }
+    // res.cookie("username", username)
+    // res.json(username)
 })
 
 router.get("/logout", (req, res)=>{
     res.clearCookie('username')
     res.send('Logout successful')
 })
-const jwt = require('jsonwebtoken')
-
-app.post('/auth', (req, res) => {
-    const { username, password } = req.body;
-    // Generate JWT token
-    const token = jwt.sign({ username: username },process.env.ACCESS_TOKEN);
-    res.send({ token });
-    res.cookie('token', token);
-
-});
-
-
-
 
 
 module.exports = router;
