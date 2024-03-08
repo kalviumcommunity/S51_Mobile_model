@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import {Link} from "react-router-dom"
 import axios from "axios"
-function App() {
+function App({isauthorized}) {
   const [data, setData] = useState([]);
-
+  console.log(isauthorized, "home")
   useEffect(() => {
     fetchData();
   }, []);
@@ -50,8 +50,8 @@ function App() {
         <p>Operating_System: {ele.Operating_System} </p>
         <p>Release_Year:{ele.Release_Year} </p>
         <p> Model Id :{ele.modelId}</p>
-        <Link to={`/update/${ele.modelId}`} state={ele}><button id="update">Update</button></Link>
-        <button onClick={()=>deleteData(ele._id)}>Delete</button>
+        { isauthorized && <Link to={`/update/${ele.modelId}`} state={ele}><button id="update">Update</button></Link> }
+        { isauthorized && <button onClick={()=>deleteData(ele._id)}>Delete</button>}
 
           </div>
         ))}
