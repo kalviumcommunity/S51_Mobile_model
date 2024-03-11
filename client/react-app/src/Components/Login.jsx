@@ -7,7 +7,7 @@ const Login = ({authorize}) => {
   
   const submit = async (data) => {
     try {
-        const res = await axios.post('http://localhost:7000/login', data);
+        const res = await axios.post('https://mobile-models.onrender.com/login', data);
         document.cookie = `authtoken=${res.data.authtoken}`
         console.log(res, 'effq');
         authorize(true)
@@ -21,12 +21,12 @@ const Login = ({authorize}) => {
   return (
     <>
       <form onSubmit={handleSubmit(submit)}>
-        <input
+        <input placeholder='User Name'
           {...register('username', {
             required: 'username is required'
           })}
         />
-        <input
+        <input placeholder='Password'
           {...register('password', {
             required: 'password is required'
           })}
