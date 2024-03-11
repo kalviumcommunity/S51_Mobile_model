@@ -23,7 +23,7 @@ app.get("/ping", (req, res) => {
 if (require.main === module) {
 
   app.listen(port, async () => {
-    // await Connect()
+    await Connect()
     console.log(`Server running: ${port}`);
   });
 }

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import "./AddData.css"
 
 const Login = ({authorize}) => {
   const { register, formState: { errors }, handleSubmit } = useForm();
@@ -31,7 +32,7 @@ const Login = ({authorize}) => {
             required: 'password is required'
           })}
         />
-        <button type='submit'>Submit</button>
+        <button id='Submit' type='submit'>Submit</button>
       </form>
     </>
   );
