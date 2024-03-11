@@ -1,15 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Home from './Components/Home'
+import AllRoutes from './AllRoutes'
+import { BrowserRouter } from 'react-router-dom'
+import Login from './Components/Login'
+import { useEffect, useState } from 'react'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [isauthorized, authorize] = useState(false)
 
   return (
     <>
-      <h1>Welcome</h1>
-      <Home/>
+    <Login authorize={authorize} />
+    <button
+    onClick={() => {
+      authorize(false);
+      document.cookie=`authtoken=${null}`
+    }}>
+    logout
+    </button>
+    <BrowserRouter>
+      <AllRoutes isauthorized={isauthorized}/>
+    </BrowserRouter>
     </>
   )
 }
