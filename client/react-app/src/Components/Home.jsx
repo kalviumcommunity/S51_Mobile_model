@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import {Link} from "react-router-dom"
 import axios from "axios"
+import "./AddData.css"
 function App({isauthorized}) {
   const [data, setData] = useState([]);
   console.log(isauthorized, "home")
@@ -32,7 +33,7 @@ function App({isauthorized}) {
 
   return (
     <>
-      <h1>Welcome</h1>
+      <h1>SmartPhones</h1>
       <Link to='/add'><button>Add</button></Link>
 
       <div className="container">

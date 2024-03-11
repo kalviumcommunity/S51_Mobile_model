@@ -1,45 +1,57 @@
-.add-data-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
-  
-  input {
-    width: calc(50% - 20px); /* Adjusted width calculation to include padding and border */
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    font-size: 14px;
-    margin-bottom: 10px; /* Added margin-bottom for spacing */
-  }
-  
-  button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+/* AddData.css */
+
+/* Container styles */
+div {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center the content horizontally */
+}
+
+/* Form styles */
+form {
+  display: grid;
+  gap: 10px;
+  text-align: left; /* Align form elements to the left */
+}
+
+/* Label styles */
+label {
+  font-weight: bold;
+}
+
+/* Input styles */
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button styles */
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Heading styles */
+h2 {
+  color: #333;
+}
+
+/* Optional: Add more styles as needed */
